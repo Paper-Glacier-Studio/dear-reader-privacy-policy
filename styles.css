@@ -69,7 +69,6 @@ h2 { font-size: 25px; font-weight: 600; line-height: 1.3; margin: 0 0 18px; }
 .services dd { margin: 0; }
 .domains { display: block; color: var(--muted); font-size: 14px; font-weight: 400; overflow-wrap: anywhere; }
 .statement { border-left: 3px solid var(--burgundy); background: var(--paper-light); padding: 18px 22px; }
-.contact-pending { color: var(--muted); font-style: italic; }
 .site-footer {
   display: flex;
   justify-content: space-between;
