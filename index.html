@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Dear Reader handles your reading queue, API keys, article content, and optional location information.">
+  <title>Dear Reader — Privacy Policy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the privacy policy</a>
+  <header class="site-header">
+    <p class="wordmark">Dear Reader</p>
+    <p class="publisher">Paper Glacier Studio</p>
+  </header>
+
+  <main id="main">
+    <header class="policy-header">
+      <p class="eyebrow">Your reading, and where it goes</p>
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective <time datetime="2026-09-20">September 20, 2026</time></p>
+      <p class="intro">Dear Reader turns links you select on supported websites into a daily reading letter. This policy explains what stays in your browser and what is sent to the services that help prepare that letter.</p>
+    </header>
+
+    <nav class="contents" aria-label="On this page">
+      <span>On this page</span>
+      <a href="#about">How it works</a>
+      <a href="#local-data">Local data</a>
+      <a href="#services">External services</a>
+      <a href="#limited-use">Data use</a>
+      <a href="#controls">Your controls</a>
+      <a href="#website">This website</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">How Dear Reader works</h2>
+      <p>Dear Reader queues links you select and uses external services to prepare a daily reading letter. The letter and its archive are stored in your browser profile. The extension does not operate its own account service or developer-hosted processing backend.</p>
+      <p>Capture and AI delivery are off by default. They start only after you save an Anthropic API key and explicitly enable processing in Settings. The separate “Check key &amp; models” action contacts Anthropic when you click it. City search contacts Open-Meteo when you search for a city.</p>
+      <p>Currently supported websites are Hacker News and Marginal Revolution. Queued links can lead to articles on other publisher websites.</p>
+    </section>
+
+    <section id="local-data" aria-labelledby="local-heading">
+      <h2 id="local-heading">Information stored on your device</h2>
+      <ul>
+        <li>Selected article URLs, titles, source sites, capture times, and available story metadata such as Hacker News IDs, scores, and comment counts.</li>
+        <li>For supported links inside Marginal Revolution posts, the referring post URL, title, and nearby text used as editorial context.</li>
+        <li>Capture, dismissal, and letter-view events; generated summaries and letters; interrupted-build progress and errors; and a locally generated device ID.</li>
+        <li>Delivery preferences, interests, custom ranking instructions, model choices, and the city name and coordinates you optionally select for weather.</li>
+        <li>Your Anthropic API key and optional Jina Reader API key. These are kept separately from the event history in extension-local storage and are not synced by Dear Reader.</li>
+      </ul>
+      <p>Local extension storage is restricted to the extension’s own pages and background worker. Content scripts running on supported websites cannot read keys or storage directly. They use a limited messaging interface for capture, capture status, and queued-item identifiers.</p>
+      <p>Local extension storage is not a password vault. Dear Reader does not add its own encryption to API keys or reading data. Access to the browser profile and device should be protected accordingly.</p>
+    </section>
+
+    <section id="services" aria-labelledby="services-heading">
+      <h2 id="services-heading">Information sent to external services</h2>
+      <p>Requests go directly from your browser to the following services:</p>
+      <dl class="services">
+        <div>
+          <dt>Article publishers</dt>
+          <dd>The queued article URL is requested to retrieve its text. Direct requests include existing website cookies when the browser permits, so signed-in content may be accessible. Cookies are sent to the relevant website by the browser; Dear Reader does not copy cookie values into AI prompts.</dd>
+        </div>
+        <div>
+          <dt>Anthropic <span class="domains">api.anthropic.com</span></dt>
+          <dd>Your API key authenticates requests. Article URLs, titles, fetched text (which can include signed-in content), discussion content, source metadata and context, summaries, interests, and custom ranking instructions are used to summarize and rank the reading list. <strong>Discussion content may include public commenter usernames.</strong> Free-text interests and instructions may contain personal information you choose to provide. A date-related fact may also be generated. API use is billed to your Anthropic account. Clicking “Check key &amp; models” sends the entered key and model IDs to check access without generating text.</dd>
+        </div>
+        <div>
+          <dt>Jina Reader <span class="domains">r.jina.ai</span></dt>
+          <dd>When direct article fetching fails or yields insufficient text, the article URL is sent to Jina Reader to retrieve readable text. If configured, your Jina API key authenticates that request. Your website cookies are not forwarded to Jina by the extension. This fallback can run without a Jina key.</dd>
+        </div>
+        <div>
+          <dt>Hacker News APIs <span class="domains">hn.algolia.com · hacker-news.firebaseio.com</span></dt>
+          <dd>Story and comment IDs are requested to retrieve posts and discussion threads, including public commenter usernames and comment text.</dd>
+        </div>
+        <div>
+          <dt>Wikipedia <span class="domains">en.wikipedia.org</span></dt>
+          <dd>The month and day are used to request an “on this day” fact.</dd>
+        </div>
+        <div>
+          <dt>Open-Meteo <span class="domains">geocoding-api.open-meteo.com · api.open-meteo.com</span></dt>
+          <dd>City search text is sent when you search for a location. Your selected city’s coordinates are sent when fetching weather for a letter. Location is manually selected; the extension does not request your device’s GPS location.</dd>
+        </div>
+      </dl>
+      <p>These providers also receive network information such as your IP address and request headers. Their own terms and privacy policies govern their processing and retention. Data sent to Anthropic and Jina is not confined to your device.</p>
+    </section>
+
+    <section id="limited-use" aria-labelledby="use-heading">
+      <h2 id="use-heading">How data is used</h2>
+      <p>The extension has no analytics, advertising, or developer-operated telemetry endpoint. It does not sell reading data or use it for advertising. Selected content is transferred to service providers to perform the features described above.</p>
+      <p>Dear Reader does not request Chrome’s history API or maintain a general browsing history. Tab URL events are inspected for a temporary marker used to capture links opened through the context menu.</p>
+      <p class="statement">Dear Reader’s use and transfer of user data adhere to the <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq">Chrome Web Store User Data Policy</a>, including the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Limited Use requirements</a>.</p>
+      <p>Data is used for the disclosed reading-letter functionality and its supporting features. It is not used or transferred for unrelated purposes, personalized advertising, determining creditworthiness, or lending.</p>
+    </section>
+
+    <section id="controls" aria-labelledby="controls-heading">
+      <h2 id="controls-heading">Retention and your controls</h2>
+      <p>The local event history and letter archive remain until the extension’s data is cleared or the extension is uninstalled. Removing an item from the queue records a dismissal; it does not erase that item’s earlier event-history entries or previously generated letters. Changing a preference can likewise leave an older value in the append-only settings history.</p>
+      <ul>
+        <li><strong>Pause capture and delivery:</strong> uncheck “Enable capture and AI delivery” in Settings and save. This pauses new captures and builds; an already-running build may finish.</li>
+        <li><strong>Remove or replace API keys:</strong> use Settings. Removing the Anthropic key stops new captures and builds; a build already in progress may finish. Revoke keys through the relevant provider to invalidate them.</li>
+        <li><strong>Stop weather requests:</strong> remove the selected location in Settings and save to stop subsequent weather requests.</li>
+        <li><strong>Stop background operation:</strong> disable the extension.</li>
+        <li><strong>Remove local extension data:</strong> uninstall the extension from that browser profile.</li>
+      </ul>
+      <p>These actions do not delete requests already processed or retained by third-party services. Use the relevant provider’s controls for that data.</p>
+    </section>
+
+    <section id="website" aria-labelledby="website-heading">
+      <h2 id="website-heading">About this policy website</h2>
+      <p>This is a static policy page. It has no forms, analytics, advertising, external fonts, or executable scripts.</p>
+      <p>When hosted on GitHub Pages, GitHub logs visitors’ IP addresses for security purposes. GitHub’s handling of website visitor information is described in the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p><strong>Paper Glacier Studio</strong></p>
+      <!-- BEFORE PUBLICATION: replace the following paragraph with a monitored
+           email address or contact URL. For an email address, use a mailto link. -->
+      <p class="contact-pending">Privacy contact details will be added before publication.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Dear Reader · Paper Glacier Studio</span>
+    <a href="#main">Back to top ↑</a>
+  </footer>
+</body>
+</html>
